@@ -29,7 +29,7 @@ const sessions = [
 
 export default function Workshops() {
   return (
-    <main className="min-h-screen bg-paper px-4 py-14 md:px-8 md:py-20">
+    <main className="min-h-screen bg-paper px-4 pt-8 pb-14 md:px-8 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-6xl">
         {/* Page heading */}
         <div className="mx-auto mb-12 max-w-2xl text-center">

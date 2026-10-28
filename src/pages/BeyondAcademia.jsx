@@ -41,22 +41,23 @@ export default function BeyondAcademia() {
       </section>
 
       {/* One unified photo and video gallery */}
-      {/* Horizontally stacked photo gallery */}
-      <section className="overflow-hidden px-4 py-12 md:px-8 md:py-20">
+
+      {/* Photo and video gallery: 5 items per row */}
+      <section className="px-4 py-10 md:px-8 md:py-14">
         <div className="mx-auto max-w-6xl">
           {photos.length > 0 ? (
-            <div className="flex items-start gap-3 overflow-x-auto pb-6 md:gap-5">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 md:gap-5">
               {photos.map(({ path, src }, index) => (
                 <figure
                   key={path}
-                  className={`w-36 flex-none overflow-hidden rounded-sm bg-paper sm:w-44 md:w-52 ${
+                  className={`overflow-hidden rounded-sm bg-paper ${
                     index % 4 === 0
-                      ? "mt-8"
+                      ? "mt-6"
                       : index % 4 === 1
                         ? "mt-0"
                         : index % 4 === 2
-                          ? "mt-12"
-                          : "mt-4"
+                          ? "mt-8"
+                          : "mt-3"
                   }`}
                 >
                   {isVideo(src) ? (
@@ -70,7 +71,7 @@ export default function BeyondAcademia() {
                   ) : (
                     <img
                       src={src}
-                      alt="Beyond academia"
+                      alt={`Beyond academia photo ${index + 1}`}
                       loading="lazy"
                       className="h-40 w-full object-cover transition-transform duration-500 hover:scale-105 sm:h-48 md:h-56"
                     />
@@ -85,6 +86,7 @@ export default function BeyondAcademia() {
           )}
         </div>
       </section>
+
       <section className="bg-paper px-6 py-10 md:px-8">
         <div className="mx-auto max-w-6xl">
           <Link

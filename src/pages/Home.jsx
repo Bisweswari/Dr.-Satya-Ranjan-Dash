@@ -48,9 +48,66 @@ const activities = Object.entries(
 export default function Home() {
   const [photoFailed, setPhotoFailed] = useState(false);
 
-  const cards = activities.length
-    ? activities
-    : [0, 1, 2, 3].map(() => ({ src: null, caption: "" }));
+  const cards = [
+    {
+      src: "src/data/activities/s1.png",
+      description:
+        "Receiving my promotion letter from our Hon’ble Founder, Dr. Achyuta Samanta, in the gracious presence of the Vice Chancellor, Registrar, and Director General (HR) of KIIT Deemed to be University.",
+    },
+    {
+      src: "src/data/activities/s2.png",
+      description:
+        "Participated in a blood donation drive at SCB Medical College and Hospital (SCBMCH) Blood Centre, supporting a lifesaving cause and promoting community health.",
+    },
+    {
+      src: "src/data/activities/s3.png",
+      description:
+        "Meeting the Winter School Resource Person at KIMS: Dr. D. Sannkeerthi, Department of Obstetrics & Gynaecology",
+    },
+    {
+      src: "src/data/activities/s4.png",
+      description:
+        "Meeting the Winter School Resource Person at KIMS: Dr. Pritam Nath, Professor and Head, Department of Gastroenterology",
+    },
+    {
+      src: "src/data/activities/s5.png",
+      description:
+        "Meeting the Winter School Resource Person at KIMS:   Dr. N. Sagarika, Department of Obstetrics & Gynaecology",
+    },
+    {
+      src: "src/data/activities/s6.png",
+      description:
+        "Meeting the Winter School Resource Person at KIMS: Dr. Matuli Das, Professor and Head , Department of Ophthalmology, KIMS",
+    },
+    {
+      src: "src/data/activities/s7.png",
+      description: "Participating in the 7th HSIL Hackathon 2026",
+    },
+    {
+      src: "src/data/activities/s8.png",
+      description:
+        "Innovation has no borders. KnowVate Global Hub connects minds across the world. First meeting with the Core Members of KnowVate Global Hub — shaping a global future of research and innovation for international students.",
+    },
+    {
+      src: "src/data/activities/s9.png",
+      description:
+        "Discussed possibilities for future collaboration with Dr. Rajesh Kumar Mishra (Samsung Research America, USA), Er. Parmeswar Panda (Waaree Energies), and Mr. Tapas Ranjan Dash.",
+    },
+    {
+      src: "src/data/activities/s10.png",
+      description:
+        "Almuni Talk by Ms. Tapasi Panda, KIIT School of Computer Applications",
+    },
+    {
+      src: "src/data/activities/s11.png",
+      description:
+        "Four students from the School of Computer Applications, KIIT-DU, qualified for the National Level Basketball Team in the East Zone Inter-University Basketball (Men) Tournament 2025–2026, Department of Sports, University of Calcutta.",
+    },
+    {
+      src: "src/data/activities/s12.png",
+      description: "KIIT, Deemed to be University.",
+    },
+  ];
 
   return (
     <main>
@@ -281,13 +338,20 @@ export default function Home() {
                   )}
                 </div>
 
-                <figcaption className="mt-4 flex gap-3">
-                  <span className="font-display text-sm font-bold text-teal">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-sm leading-6 text-ink">
-                    {item.caption || "Caption appears here"}
-                  </span>
+                <figcaption className="mt-4">
+                  <div className="flex items-start gap-3">
+                    <span className="shrink-0 font-display text-sm font-bold text-teal">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    <div>
+                      {item.description && (
+                        <p className="mt-2 text-xs leading-6 text-slate-600 md:text-sm">
+                          {item.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 </figcaption>
               </figure>
             ))}

@@ -223,14 +223,14 @@ export default function Scholars() {
     });
   };
   return (
-    <main className="min-h-screen bg-paper px-5 py-16 md:px-8 md:py-24">
+    <main className="min-h-screen bg-paper px-4 pt-8 pb-14 md:px-8 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-16 max-w-3xl">
+        <header className="mx-auto mb-16 max-w-3xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-teal">
             Academic mentorship
           </p>
 
-          <h1 className="font-display text-4xl font-bold leading-tight text-ink md:text-6xl">
+          <h1 className="font-display text-3xl font-semibold text-ink md:text-5xl">
             Scholars & Edited Books
           </h1>
 

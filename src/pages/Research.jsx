@@ -90,63 +90,47 @@ function PublicationSection({
   eyebrow,
   icon: Icon,
   items,
-  initialCount = 5,
+  initialCount = 4,
 }) {
   const [expanded, setExpanded] = useState(false);
   const visibleItems = expanded ? items : items.slice(0, initialCount);
 
   return (
-    <section id={id} className="mb-20 scroll-mt-24">
-      <SectionHeading
-        icon={Icon}
-        eyebrow={eyebrow}
-        title={title}
-        count={items.length}
-        unit="entries"
-      />
-      <div className="space-y-4">
+    <section id={id} className="mb-16 scroll-mt-24">
+      <SectionHeading eyebrow={eyebrow} title={title} />
+
+      <div className="divide-y divide-ink/10">
         {visibleItems.map((item, index) => {
           const [citation, url] = item;
+
           return (
-            <article
-              key={`${id}-${index}`}
-              className="group rounded-2xl border border-ink/10 bg-white p-5 transition duration-300 hover:border-teal/40 hover:shadow-lg md:p-7"
-            >
-              <div className="flex items-start gap-4">
-                <div className="hidden shrink-0 sm:block">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal/10 font-display text-sm font-semibold text-teal">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm leading-7 text-slate-700 md:text-base">
-                    {citation}
-                  </p>
-                  {url && (
-                    <div className="mt-4 border-t border-ink/10 pt-4">
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-teal hover:text-ink"
-                      >
-                        <ExternalLink size={16} /> DOI / Publisher{" "}
-                        <ArrowUpRight size={14} />
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </div>
+            <article key={`${id}-${index}`} className="py-5 first:pt-0">
+              <p className="text-sm leading-7 text-slate-700 md:text-base">
+                {citation}
+              </p>
+
+              {url && (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-teal hover:text-ink"
+                >
+                  View publication
+                  <ArrowUpRight size={15} />
+                </a>
+              )}
             </article>
           );
         })}
       </div>
+
       {items.length > initialCount && (
         <button
           type="button"
           onClick={() => setExpanded((previous) => !previous)}
           aria-expanded={expanded}
-          className="mt-5 inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:border-teal hover:text-teal"
+          className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal transition hover:text-ink"
         >
           {expanded ? "Show fewer" : `View all ${items.length} entries`}
           <ChevronDown
@@ -166,7 +150,7 @@ export default function Research() {
     bookChapters.length +
     conferencePapers.length;
   return (
-    <main className="min-h-screen bg-paper px-4 py-14 md:px-8 md:py-20">
+    <main className="min-h-screen bg-paper px-4 pt-8 pb-14 md:px-8 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-6xl">
         <header className="mx-auto mb-12 max-w-3xl text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-teal">
