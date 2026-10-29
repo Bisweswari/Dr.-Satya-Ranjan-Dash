@@ -226,7 +226,7 @@ export default function Scholars() {
     <main className="min-h-screen bg-paper px-4 pt-8 pb-14 md:px-8 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-6xl">
         <header className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-teal">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-teal">
             Academic mentorship
           </p>
 

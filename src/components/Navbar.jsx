@@ -6,8 +6,8 @@ const links = [
   { label: "Research & Publications", to: "/research" },
   { label: "Clubs & Societies", to: "/clubs" },
   { label: "Workshops & Summer Schools", to: "/workshops" },
-  { label: "Research Forums", to: "/forums" },
   { label: "Scholars & Edited Books", to: "/scholars" },
+  { label: "Engagements & Beyond", to: "/engagements-beyond" },
 ];
 
 const linkClass = ({ isActive }) =>
@@ -36,6 +36,7 @@ export default function Navbar() {
             <span>Dr. Satya Ranjan Dash</span>
           </NavLink>
 
+          {/* Desktop navigation */}
           <div className="hidden items-center gap-7 lg:flex">
             {links.map((link) => (
               <NavLink
@@ -49,6 +50,7 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* Mobile menu button */}
           <button
             type="button"
             className="p-1 text-ink lg:hidden"
@@ -60,6 +62,7 @@ export default function Navbar() {
           </button>
         </div>
 
+        {/* Mobile navigation */}
         {open && (
           <div className="mt-3 flex flex-col border-t border-ink/20 py-2 lg:hidden">
             {links.map((link) => (

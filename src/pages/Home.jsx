@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
-import { GraduationCap, Mail, Phone, FileText, ImageIcon } from "lucide-react";
+import { GraduationCap, Mail, Phone, FileText } from "lucide-react";
 import {
   SiResearchgate,
   SiGooglescholar,
@@ -295,97 +294,6 @@ export default function Home() {
               <span>{name}</span>
             </a>
           ))}
-        </div>
-      </section>
-      {/* Recent activities: horizontal, staggered up and down */}
-      <section id="activities" className="bg-paper px-6 py-8 md:px-8 md:py-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <h2 className="font-display text-3xl font-bold text-teal md:text-4xl">
-                Recent activities
-              </h2>
-              <p className="mt-4 max-w-2xl leading-7 text-slate-600">
-                Moments from recent talks, events and academic engagements.
-              </p>
-            </div>
-          </div>
-
-          {/* Wraps to the next row automatically when a row is full */}
-          <div className="mt-12 flex flex-wrap gap-x-5 gap-y-10 pb-12 md:gap-x-8 md:gap-y-14">
-            {cards.map((item, i) => (
-              <figure
-                key={item.src || i}
-                className={`w-[calc(50%-0.625rem)] md:w-[calc(33.333%-1.334rem)] lg:w-[calc(25%-1.5rem)] ${
-                  i % 2 === 1 ? "mt-8 md:mt-14" : ""
-                }`}
-              >
-                <div className="aspect-[4/5] overflow-hidden bg-white">
-                  {item.src ? (
-                    <img
-                      src={item.src}
-                      alt={item.caption}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-4 text-center text-ink/40">
-                      <ImageIcon size={40} />
-                      <span className="text-xs">
-                        Add photos to src/data/activities
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                <figcaption className="mt-4">
-                  <div className="flex items-start gap-3">
-                    <span className="shrink-0 font-display text-sm font-bold text-teal">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-
-                    <div>
-                      {item.description && (
-                        <p className="mt-2 text-xs leading-6 text-slate-600 md:text-sm">
-                          {item.description}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Hobbies */}
-      <section className="bg-white px-6 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-6xl">
-          <Link
-            to="/beyond-academia"
-            className="group block rounded-xl transition-colors hover:bg-paper/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
-            aria-label="Explore Beyond Academia"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <h2 className="font-display text-3xl font-bold text-teal md:text-4xl">
-                Beyond academia
-              </h2>
-
-              <ArrowUpRight
-                size={28}
-                className="shrink-0 text-teal transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-              />
-            </div>
-
-            <p className="mt-4 max-w-2xl leading-7 text-slate-600">
-              Away from research, my time is shared with the birds and dogs that
-              live with us at home.
-            </p>
-
-            <p className="mt-4 text-sm font-semibold text-teal">
-              Explore beyond academia →
-            </p>
-          </Link>
         </div>
       </section>
     </main>
