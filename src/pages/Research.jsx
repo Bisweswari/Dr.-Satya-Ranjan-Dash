@@ -234,25 +234,56 @@ export default function Research() {
           items={conferencePapers}
         />
 
-        <div className="rounded-2xl border border-ink/10 bg-white p-6 text-center md:p-8">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-teal/10 text-teal">
-            <Quote size={23} />
+        <div className="group relative isolate overflow-hidden rounded-2xl border border-ink/10 bg-white p-6 text-center transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10 md:p-8">
+          {/* Criss-cross diamond-cut decorative lines */}
+          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+            <svg
+              className="absolute inset-0 h-full w-full text-slate-400/[0.050] transition-colors duration-500 group-hover:text-slate-400/[0.08]"
+              viewBox="0 0 300 150"
+              preserveAspectRatio="none"
+              fill="none"
+            >
+              <path
+                d="M150 0 L75 75 L150 150 L225 75 Z"
+                stroke="currentColor"
+              />
+              <path d="M75 75 L225 75 M150 0 L150 150" stroke="currentColor" />
+              <path d="M0 0 L150 150 L300 0" stroke="currentColor" />
+              <path d="M0 150 L150 0 L300 150" stroke="currentColor" />
+              <path d="M0 75 L150 0 L300 75" stroke="currentColor" />
+              <path d="M0 75 L150 150 L300 75" stroke="currentColor" />
+            </svg>
+
+            {/* Subtle diagonal shine */}
+            <div className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
           </div>
-          <h2 className="mt-4 font-display text-xl font-semibold text-ink md:text-2xl">
-            Explore All Publications
-          </h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-600">
-            Visit the researcher's Google Scholar profile for additional
-            publications and citation information.
-          </p>
-          <a
-            href="https://scholar.google.com/citations?user=3aLkeUYAAAAJ&hl=en&oi=ao"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-teal px-5 py-3 text-sm font-semibold text-white transition hover:bg-ink"
-          >
-            Google Scholar <ArrowUpRight size={17} />
-          </a>
+
+          {/* Existing left accent */}
+          <div className="absolute inset-y-0 left-0 w-1 bg-teal/70" />
+
+          <div className="relative z-10">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-teal/10 text-teal transition-transform duration-500 group-hover:scale-110">
+              <Quote size={23} />
+            </div>
+
+            <h2 className="mt-4 font-display text-xl font-semibold text-ink transition-colors duration-300 group-hover:text-teal md:text-2xl">
+              Explore All Publications
+            </h2>
+
+            <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-600">
+              Visit the researcher's Google Scholar profile for additional
+              publications and citation information.
+            </p>
+
+            <a
+              href="https://scholar.google.com/citations?user=3aLkeUYAAAAJ&hl=en&oi=ao"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-lg bg-teal px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink"
+            >
+              Google Scholar <ArrowUpRight size={17} />
+            </a>
+          </div>
         </div>
       </div>
     </main>

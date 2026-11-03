@@ -132,27 +132,58 @@ export default function EngagementsBeyond() {
         <div className="mx-auto max-w-6xl">
           <Link
             to="/beyond-academia"
-            className="group mx-auto block max-w-4xl rounded-xl border border-ink/10 p-6 text-center transition-colors hover:border-teal/40 hover:bg-paper/60 md:p-8"
+            className="group relative isolate mx-auto block max-w-4xl overflow-hidden rounded-xl border border-ink/10 bg-white p-6 text-center transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10 md:p-8"
           >
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-teal">
-              Life beyond research
-            </p>
+            {/* Criss-cross diamond-cut decorative lines */}
+            <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+              <svg
+                className="absolute inset-0 h-full w-full text-slate-400/[0.055] transition-colors duration-500 group-hover:text-slate-400/[0.12]"
+                viewBox="0 0 300 150"
+                preserveAspectRatio="none"
+                fill="none"
+              >
+                <path
+                  d="M150 0 L75 75 L150 150 L225 75 Z"
+                  stroke="currentColor"
+                />
+                <path
+                  d="M75 75 L225 75 M150 0 L150 150"
+                  stroke="currentColor"
+                />
+                <path d="M0 0 L150 150 L300 0" stroke="currentColor" />
+                <path d="M0 150 L150 0 L300 150" stroke="currentColor" />
+                <path d="M0 75 L150 0 L300 75" stroke="currentColor" />
+                <path d="M0 75 L150 150 L300 75" stroke="currentColor" />
+              </svg>
 
-            <div className="flex items-center justify-center gap-3">
-              <h2 className="font-display text-2xl font-bold text-ink md:text-3xl">
-                Beyond Academia
-              </h2>
-
-              <ArrowUpRight
-                size={26}
-                className="shrink-0 text-teal transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-              />
+              {/* Subtle diagonal shine */}
+              <div className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
             </div>
 
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 md:text-base">
-              Explore personal interests, memorable experiences, and moments
-              shared with the birds and dogs at home.
-            </p>
+            {/* Existing left accent */}
+            <div className="absolute inset-y-0 left-0 w-1 bg-teal/70" />
+
+            <div className="relative z-10">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-teal">
+                Life beyond research
+              </p>
+
+              <div className="flex items-center justify-center gap-3">
+                <h2 className="font-display text-2xl font-bold text-ink transition-colors duration-300 group-hover:text-teal md:text-3xl">
+                  Beyond Academia
+                </h2>
+
+                <ArrowUpRight
+                  size={26}
+                  className="shrink-0 text-teal transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                />
+              </div>
+
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 md:text-base">
+                Explore personal interests, memorable experiences, and moments
+                shared with the birds and dogs at home.
+              </p>
+            </div>
           </Link>
         </div>
       </section>
