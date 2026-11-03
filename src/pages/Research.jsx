@@ -36,6 +36,7 @@ function SectionHeading({ eyebrow, title, description }) {
     </div>
   );
 }
+
 function ProjectSection() {
   return (
     <section id="research-projects" className="mb-20 scroll-mt-24">
@@ -46,30 +47,71 @@ function ProjectSection() {
         count={projects.length}
         unit="projects"
       />
+
       <div className="grid gap-5 md:grid-cols-2">
         {projects.map((project, index) => (
           <article
             key={project.title}
-            className={`group relative overflow-hidden rounded-2xl border border-ink/10 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg md:p-7 ${index === 0 ? "md:col-span-2" : ""}`}
+            className={`group relative isolate overflow-hidden rounded-2xl border border-ink/10 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10 md:p-7 ${
+              index === 0 ? "md:col-span-2" : ""
+            }`}
           >
+            {/* Criss-cross diamond-cut decorative lines */}
+            <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+              <svg
+                className="absolute inset-0 h-full w-full text-slate-400/[0.055] transition-colors duration-500 group-hover:text-slate-400/[0.12]"
+                viewBox="0 0 300 150"
+                preserveAspectRatio="none"
+                fill="none"
+              >
+                {/* Diamond facets */}
+                <path
+                  d="M150 0 L75 75 L150 150 L225 75 Z"
+                  stroke="currentColor"
+                />
+                <path
+                  d="M75 75 L225 75 M150 0 L150 150"
+                  stroke="currentColor"
+                />
+
+                {/* Cross-cut diagonal lines */}
+                <path d="M0 0 L150 150 L300 0" stroke="currentColor" />
+                <path d="M0 150 L150 0 L300 150" stroke="currentColor" />
+
+                {/* Additional facet lines */}
+                <path d="M0 75 L150 0 L300 75" stroke="currentColor" />
+                <path d="M0 75 L150 150 L300 75" stroke="currentColor" />
+              </svg>
+
+              {/* Subtle diagonal shine */}
+              <div className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+            </div>
+
+            {/* Existing left accent */}
             <div className="absolute inset-y-0 left-0 w-1 bg-teal/70" />
+
             <div className="flex items-start gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal/10 font-display text-base font-semibold text-teal">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal/10 font-display text-base font-semibold text-teal transition-transform duration-500 group-hover:scale-110">
                 {String(index + 1).padStart(2, "0")}
               </div>
+
               <div className="min-w-0 flex-1">
-                <h3 className="font-display text-lg font-semibold leading-snug text-ink transition group-hover:text-teal md:text-xl">
+                <h3 className="font-display text-lg font-semibold leading-snug text-ink transition-colors duration-300 group-hover:text-teal md:text-xl">
                   {project.title}
                 </h3>
+
                 <div className="mt-5 flex items-start gap-2.5 border-t border-ink/10 pt-4">
                   <Building2 size={17} className="mt-0.5 shrink-0 text-teal" />
+
                   <div>
                     <p className="text-sm font-semibold text-slate-700">
                       {project.organization}
                     </p>
+
                     <p className="mt-1 text-sm leading-6 text-slate-500">
                       {project.program}
                     </p>
+
                     <p className="mt-1 text-xs text-slate-500">
                       {project.country}
                     </p>

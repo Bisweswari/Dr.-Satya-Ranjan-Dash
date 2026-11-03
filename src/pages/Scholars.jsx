@@ -189,20 +189,41 @@ function Section({ number, title, description, children, sectionRef }) {
   );
 }
 
+function DiamondPattern() {
+  return (
+    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <svg
+        className="absolute inset-0 h-full w-full text-slate-400/[0.055] transition-colors duration-500 group-hover:text-slate-400/[0.12]"
+        viewBox="0 0 300 150"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        <path d="M150 0 L75 75 L150 150 L225 75 Z" stroke="currentColor" />
+        <path d="M75 75 L225 75 M150 0 L150 150" stroke="currentColor" />
+        <path d="M0 0 L150 150 L300 0" stroke="currentColor" />
+        <path d="M0 150 L150 0 L300 150" stroke="currentColor" />
+        <path d="M0 75 L150 0 L300 75" stroke="currentColor" />
+        <path d="M0 75 L150 150 L300 75" stroke="currentColor" />
+      </svg>
+
+      <div className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+    </div>
+  );
+}
+
 function ScholarCard({ name, title, year, program }) {
   return (
-    <article className="rounded-2xl border border-ink/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-teal/40 hover:shadow-md md:p-6">
+    <article className="group relative isolate overflow-hidden rounded-2xl border border-ink/10 bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10 md:p-6">
+      <DiamondPattern />{" "}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <h3 className="font-display text-lg font-bold text-ink">{name}</h3>
         <span className="rounded-full bg-teal/10 px-3 py-1 text-xs font-semibold text-teal">
           {year}
         </span>
       </div>
-
       {program && (
         <p className="mt-2 text-sm font-medium text-ink/60">{program}</p>
       )}
-
       <p className="mt-3 text-sm leading-7 text-ink/75">
         <span className="font-semibold text-ink">Thesis: </span>
         {title}
@@ -243,8 +264,9 @@ export default function Scholars() {
             <button
               type="button"
               onClick={() => scrollToSection(phdRef)}
-              className="rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition hover:-translate-y-1 hover:border-teal hover:shadow-md"
+              className="group relative isolate overflow-hidden rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
             >
+              <DiamondPattern />
               <span className="block font-display text-2xl font-bold text-teal">
                 {phdScholars.length}
               </span>
@@ -256,8 +278,9 @@ export default function Scholars() {
             <button
               type="button"
               onClick={() => scrollToSection(booksRef)}
-              className="rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition hover:-translate-y-1 hover:border-teal hover:shadow-md"
+              className="group relative isolate overflow-hidden rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
             >
+              <DiamondPattern />
               <span className="block font-display text-2xl font-bold text-teal">
                 {editedBooks.length}
               </span>
@@ -269,8 +292,9 @@ export default function Scholars() {
             <button
               type="button"
               onClick={() => scrollToSection(mastersRef)}
-              className="rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition hover:-translate-y-1 hover:border-teal hover:shadow-md"
+              className="group relative isolate overflow-hidden rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
             >
+              <DiamondPattern />
               <span className="block font-display text-2xl font-bold text-teal">
                 {mastersScholars.length}
               </span>
@@ -304,8 +328,9 @@ export default function Scholars() {
             {editedBooks.map((book) => (
               <article
                 key={book.title}
-                className="flex flex-col rounded-2xl border border-ink/10 bg-white p-6"
+                className="group relative isolate flex flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
               >
+                <DiamondPattern />
                 <span className="text-xs font-semibold uppercase tracking-wider text-teal">
                   {book.publisher} · {book.year}
                 </span>

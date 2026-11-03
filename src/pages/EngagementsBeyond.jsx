@@ -68,7 +68,7 @@ export default function EngagementsBeyond() {
       </section>
 
       {/* Academic engagements gallery */}
-      <section className="px-5 py-8 md:px-8 md:py-12">
+      <section className="px-5 pt-2 pb-8 md:px-8 md:pt-2 md:pb-8">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 text-center">
             <h2 className="font-display text-2xl font-bold text-teal md:text-3xl">

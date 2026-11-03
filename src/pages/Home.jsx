@@ -11,7 +11,7 @@ import { FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 // Portrait lives in src/data (imported so Vite bundles it correctly)
-import PHOTO from "../data/dr. satya sir.jpeg";
+import PHOTO from "../data/satya sir.png";
 
 // CV file: put it at  public/cv.pdf
 const CV_URL = "/cv.pdf";
@@ -109,37 +109,57 @@ export default function Home() {
   ];
 
   return (
-    <main>
+    <main className="w-full min-w-0 overflow-x-clip">
       {/* Hero: sized to the screen height so it fits a laptop without scrolling */}
-      <section className="relative flex bg-ink lg:min-h-[calc(100svh-6.5rem)]">
+      <section className="relative flex w-full min-w-0 overflow-x-clip bg-ink lg:min-h-[calc(100svh-6.5rem)]">
         <div className="absolute inset-x-0 top-0 h-[14svh] min-h-16 bg-paper" />
 
-        <div className="relative mx-auto grid w-full max-w-[1300px] items-center gap-8 px-6 pb-12 pt-4 md:grid-cols-[auto_minmax(0,1fr)] md:gap-0 md:px-8 md:pb-[5svh] md:pt-[3svh]">
-          <div className="mx-auto aspect-[3/4] w-[min(80vw,360px)] overflow-hidden bg-slate-200 md:ml-6 md:mt-[-12px] md:h-[clamp(320px,calc(100svh_-_7rem_-_8svh),900px)] md:w-auto">
-            {photoFailed ? (
-              <div className="flex h-full w-full items-center justify-center bg-paper text-ink/30">
-                <GraduationCap size={96} />
-              </div>
-            ) : (
-              <img
-                src={PHOTO}
-                alt="Dr. Satya Ranjan Dash"
-                onError={() => setPhotoFailed(true)}
-                className="h-full w-full object-cover"
-              />
-            )}
+        <div className="relative mx-auto grid w-full max-w-[1300px] min-w-0 items-center gap-8 px-4 pb-12 pt-4 sm:px-6 md:grid-cols-[auto_minmax(0,1fr)] md:gap-0 md:px-8 md:pb-[5svh] md:pt-[3svh]">
+          <div className="relative mx-auto aspect-[3/4] w-[min(80vw,360px)] md:ml-6 md:mt-[-12px] md:h-[clamp(320px,calc(100svh-7rem-8svh),900px)] md:w-auto">
+            {/* Back card */}
+            <div className="absolute inset-0 translate-x-4 translate-y-4 rotate-3 rounded-xl border-2 border-gold/60 bg-gold/15" />
+
+            {/* Second card */}
+            <div className="absolute inset-0 -translate-x-3 translate-y-2 -rotate-2 rounded-xl border border-white/30 bg-teal/20" />
+
+            {/* Main photo */}
+            <div className="relative z-10 h-full w-full overflow-hidden rounded-xl shadow-2xl">
+              {photoFailed ? (
+                <div className="flex h-full w-full items-center justify-center bg-paper text-ink/30">
+                  <GraduationCap size={96} />
+                </div>
+              ) : (
+                <img
+                  src={PHOTO}
+                  alt="Dr. Satya Ranjan Dash"
+                  onError={() => setPhotoFailed(true)}
+                  className="h-full w-full object-cover"
+                />
+              )}
+            </div>
           </div>
 
           <div className="md:self-stretch md:pt-[11svh]">
-            <h1 className="font-display text-5xl font-bold leading-[1.05] text-gold sm:text-6xl md:ml-[clamp(1.5rem,4vw,4rem)] md:text-[clamp(2.5rem,min(5.8vw,12.5svh),6.5rem)]">
+            <h1 className="whitespace-nowrap font-display text-[clamp(1.7rem,6.2vw,6.5rem)] font-bold leading-tight tracking-tight text-gold md:ml-[clamp(1.5rem,4vw,4rem)] md:text-[clamp(2.5rem,5.2vw,6.5rem)]">
               Dr. Satya Ranjan Dash
             </h1>
 
             <div className="mt-8 md:ml-[clamp(1.5rem,4vw,4rem)] md:mt-[5svh] md:max-w-xl">
-              <p className="whitespace-nowrap font-display text-base font-bold text-white md:text-xl">
-                Professor & Dean, School of Computer Applications, KIIT Deemed
-                To Be University
+              <p className="max-w-full font-display text-sm font-bold leading-relaxed text-white sm:text-base md:text-xl">
+                Professor & Dean, School of Computer Applications
               </p>
+
+              {/* University logo and name */}
+              <div className="mt-3 flex items-center gap-3">
+                <img
+                  src="src/data/kiit-logo.png"
+                  alt="KIIT Logo"
+                  className="h-8 w-auto object-contain"
+                />
+                <p className="font-display text-sm font-semibold text-gold sm:text-base md:text-lg">
+                  KIIT Deemed To Be University
+                </p>
+              </div>
               <p className="mt-4 leading-7 text-white/85 md:mt-[3svh] md:text-lg md:leading-8">
                 Welcome to my academic portfolio — a space for research,
                 publications, academic activities and meaningful scholarly
@@ -223,15 +243,50 @@ export default function Home() {
             ].map((metric) => (
               <div
                 key={metric.label}
-                className="rounded-xl border border-ink/10 bg-white px-5 py-4 text-center"
+                className="group relative isolate overflow-hidden rounded-xl border border-ink/10 bg-white px-5 py-5 text-center transition-all duration-500 hover:-translate-y-1 hover:border-teal/30 hover:shadow-lg hover:shadow-teal/10"
               >
-                <p className="text-xs font-medium uppercase tracking-wider text-slate-500">
+                {/* Criss-cross diamond-cut decorative lines */}
+                <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+                  <svg
+                    className="absolute inset-0 h-full w-full text-slate-500/[0.09] transition-colors duration-500 group-hover:text-slate-500/[0.16]"
+                    viewBox="0 0 300 150"
+                    preserveAspectRatio="none"
+                    fill="none"
+                  >
+                    {/* Top diamond facets */}
+                    <path
+                      d="M150 0 L75 75 L150 150 L225 75 Z"
+                      stroke="currentColor"
+                    />
+                    <path
+                      d="M75 75 L225 75 M150 0 L150 150"
+                      stroke="currentColor"
+                    />
+
+                    {/* Cross-cut diagonal lines */}
+                    <path d="M0 0 L150 150 L300 0" stroke="currentColor" />
+                    <path d="M0 150 L150 0 L300 150" stroke="currentColor" />
+
+                    {/* Additional facet lines */}
+                    <path d="M0 75 L150 0 L300 75" stroke="currentColor" />
+                    <path d="M0 75 L150 150 L300 75" stroke="currentColor" />
+                  </svg>
+
+                  {/* Subtle diagonal shine */}
+                  <div className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+                </div>
+
+                <p className="relative text-xs font-medium uppercase tracking-wider text-slate-500">
                   {metric.label}
                 </p>
-                <p className="mt-1 font-display text-2xl font-semibold text-ink">
+
+                <p className="relative mt-1 font-display text-2xl font-semibold text-ink transition-colors duration-300 group-hover:text-teal">
                   {metric.value}
                 </p>
-                <p className="mt-1 text-xs text-slate-500">Google Scholar</p>
+
+                <p className="relative mt-1 text-xs text-slate-500">
+                  Google Scholar
+                </p>
               </div>
             ))}
           </div>

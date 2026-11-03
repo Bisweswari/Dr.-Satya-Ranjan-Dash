@@ -7,7 +7,7 @@ const sessions = [
     title: "Kavach Cybersecurity Society",
     type: "Society",
     description:
-      "An introducory session featuring research insights, practical knowledge and academic discussions.",
+      "An introductory session featuring research insights, practical knowledge and academic discussions.",
     date: "17th October 2026",
     videoId: "https://www.youtube.com/watch?v=lYExgFfy7B0",
   },
@@ -20,11 +20,55 @@ const sessions = [
     videoId: "https://www.youtube.com/watch?v=9g2DPACwMrQ",
   },
   {
-    title: "Faculty Development Programme",
-    type: "Faculty Development",
+    title: "Task Challenges in Low-resource Indian languages",
+    type: "Summer School",
+    description: "By Dr. Sandip ModhaDhirubhai Ambani University (DAU)",
+    date: "10th June 2026",
+    videoId: "https://www.youtube.com/watch?v=OMUkXJsl734",
+  },
+  {
+    title:
+      "The Illusion of Inclusion: How LLMs Misrepresent African Languages and Cultural Contexts",
+    type: "Summer School",
     description:
-      "A knowledge-sharing session for educators and researchers to explore new concepts and practices.",
-    date: "Add event date",
+      "By Dr. Shamsuddeen Hassan Muhammad, Imperial College London, UK",
+    date: "10th June 2026",
+    videoId: "https://www.youtube.com/watch?v=82_sRzklPgo",
+  },
+  {
+    title: "AI Agents/Agentic AI for NLP Applications",
+    type: "Summer School",
+    description: "By Dr. Aloka Fernando, University of Moratuwa, Srilanka",
+    date: "10th June 2026",
+    videoId: "https://www.youtube.com/watch?v=3J47FNhfnj8",
+  },
+  {
+    title:
+      "LLM-Assisted Multi-Objective Prompt Learning for Low-resource Language Summarization",
+    type: "Summer School",
+    description: "By Dr. Naveen Saini, IIIT Allahabad",
+    date: "09th June 2026",
+    videoId: "https://www.youtube.com/watch?v=sTOAZCmHtpI",
+  },
+  {
+    title: "Data Augmentation to Improve NMT for Low-Resource Languages",
+    type: "Summer School",
+    description: "By Dr. Aloka Fernando, University of Moratuwa, Srilankaa",
+    date: "09th June 2026",
+    videoId: "https://www.youtube.com/watch?v=Dh9N87AqJXk",
+  },
+  {
+    title: "AI Agents/Agentic AI for NLP Applications",
+    type: "Summer School",
+    description: "By Dr. Aloka Fernando, University of Moratuwa, Srilanka",
+    date: "10th June 2026",
+    videoId: "",
+  },
+  {
+    title: "AI Agents/Agentic AI for NLP Applications",
+    type: "Summer School",
+    description: "By Dr. Aloka Fernando, University of Moratuwa, Srilanka",
+    date: "10th June 2026",
     videoId: "",
   },
 ];

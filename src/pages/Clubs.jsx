@@ -47,10 +47,37 @@ export default function Clubs() {
             return (
               <article
                 key={society.title}
-                className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-xl md:p-8"
+                className="group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-xl hover:shadow-teal/10 md:p-8"
               >
+                {/* Criss-cross diamond-cut pattern */}
+                <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+                  <svg
+                    className="absolute inset-0 h-full w-full text-slate-400/[0.055] transition-colors duration-500 group-hover:text-slate-400/[0.12]"
+                    viewBox="0 0 300 240"
+                    preserveAspectRatio="none"
+                    fill="none"
+                  >
+                    <path
+                      d="M150 0 L75 120 L150 240 L225 120 Z"
+                      stroke="currentColor"
+                    />
+                    <path
+                      d="M75 120 L225 120 M150 0 L150 240"
+                      stroke="currentColor"
+                    />
+                    <path d="M0 0 L150 240 L300 0" stroke="currentColor" />
+                    <path d="M0 240 L150 0 L300 240" stroke="currentColor" />
+                    <path d="M0 120 L150 0 L300 120" stroke="currentColor" />
+                    <path d="M0 120 L150 240 L300 120" stroke="currentColor" />
+                  </svg>
+
+                  {/* Diagonal shine */}
+                  <div className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+                </div>
+
+                {/* Society icon */}
                 <div
-                  className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${society.accent} text-teal`}
+                  className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${society.accent} text-teal transition-transform duration-500 group-hover:scale-110`}
                 >
                   <Icon size={28} strokeWidth={1.7} />
                 </div>
@@ -59,7 +86,7 @@ export default function Clubs() {
                   {society.subtitle}
                 </p>
 
-                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
+                <h2 className="font-display text-2xl font-semibold text-ink transition-colors duration-300 group-hover:text-teal md:text-3xl">
                   {society.title}
                 </h2>
 
@@ -76,7 +103,7 @@ export default function Clubs() {
                   Explore Society
                   <ArrowUpRight
                     size={17}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
                 </a>
               </article>
