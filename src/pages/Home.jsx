@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GraduationCap, Mail, Phone, FileText } from "lucide-react";
+import kiitLogo from "../data/kiit-logo.png";
 import {
   SiResearchgate,
   SiGooglescholar,
@@ -152,8 +153,8 @@ export default function Home() {
               {/* University logo and name */}
               <div className="mt-3 flex items-center gap-3">
                 <img
-                  src="src/data/kiit-logo.png"
-                  alt="KIIT Logo"
+                  src={kiitLogo}
+                  alt="KIIT Deemed To Be University"
                   className="h-8 w-auto object-contain"
                 />
                 <p className="font-display text-sm font-semibold text-gold sm:text-base md:text-lg">
