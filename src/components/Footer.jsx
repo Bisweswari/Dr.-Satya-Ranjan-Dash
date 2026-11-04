@@ -56,7 +56,7 @@ export default function Footer() {
             to="/scholars"
             className="transition-all duration-300 hover:translate-x-1 hover:text-gold"
           >
-            Scholars & Edited Books
+            Research Scholars
           </Link>
 
           <Link
