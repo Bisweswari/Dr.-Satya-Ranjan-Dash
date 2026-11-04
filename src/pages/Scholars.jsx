@@ -166,17 +166,19 @@ const mastersScholars = [
   },
 ];
 
-function Section({ number, title, description, children, sectionRef }) {
+function Section({ number, title, description, children }) {
   return (
-    <section ref={sectionRef} className="mb-16 scroll-mt-8">
+    <section className="mb-16 scroll-mt-8">
       <div className="mb-7 flex items-start gap-4">
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal/10 font-display text-sm font-bold text-teal">
           {number}
         </span>
+
         <div>
           <h2 className="font-display text-2xl font-bold text-ink md:text-3xl">
             {title}
           </h2>
+
           {description && (
             <p className="mt-2 max-w-2xl text-sm leading-6 text-ink/65">
               {description}
@@ -184,6 +186,7 @@ function Section({ number, title, description, children, sectionRef }) {
           )}
         </div>
       </div>
+
       {children}
     </section>
   );
@@ -214,16 +217,20 @@ function DiamondPattern() {
 function ScholarCard({ name, title, year, program }) {
   return (
     <article className="group relative isolate overflow-hidden rounded-2xl border border-ink/10 bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10 md:p-6">
-      <DiamondPattern />{" "}
+      <DiamondPattern />
+
       <div className="flex flex-wrap items-start justify-between gap-3">
         <h3 className="font-display text-lg font-bold text-ink">{name}</h3>
+
         <span className="rounded-full bg-teal/10 px-3 py-1 text-xs font-semibold text-teal">
           {year}
         </span>
       </div>
+
       {program && (
         <p className="mt-2 text-sm font-medium text-ink/60">{program}</p>
       )}
+
       <p className="mt-3 text-sm leading-7 text-ink/75">
         <span className="font-semibold text-ink">Thesis: </span>
         {title}
@@ -233,16 +240,6 @@ function ScholarCard({ name, title, year, program }) {
 }
 
 export default function Scholars() {
-  const phdRef = useRef(null);
-  const booksRef = useRef(null);
-  const mastersRef = useRef(null);
-
-  const scrollToSection = (ref) => {
-    ref.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
   return (
     <main className="min-h-screen bg-paper px-4 pt-8 pb-14 md:px-8 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-6xl">
@@ -252,61 +249,17 @@ export default function Scholars() {
           </p>
 
           <h1 className="font-display text-3xl font-semibold text-ink md:text-5xl">
-            Scholars & Edited Books
+            Research Scholars
           </h1>
 
           <p className="mt-5 text-base leading-8 text-ink/70 md:text-lg">
-            Research contributions, doctoral supervision, postgraduate projects,
-            and edited scholarly volumes associated with Dr. Satya Ranjan Dash.
+            Doctoral supervision and postgraduate research projects associated
+            with Dr. Satya Ranjan Dash.
           </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <button
-              type="button"
-              onClick={() => scrollToSection(phdRef)}
-              className="group relative isolate overflow-hidden rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
-            >
-              <DiamondPattern />
-              <span className="block font-display text-2xl font-bold text-teal">
-                {phdScholars.length}
-              </span>
-              <span className="mt-1 block text-sm text-ink/70">
-                PhD scholars →
-              </span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection(booksRef)}
-              className="group relative isolate overflow-hidden rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
-            >
-              <DiamondPattern />
-              <span className="block font-display text-2xl font-bold text-teal">
-                {editedBooks.length}
-              </span>
-              <span className="mt-1 block text-sm text-ink/70">
-                Edited books →
-              </span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection(mastersRef)}
-              className="group relative isolate overflow-hidden rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
-            >
-              <DiamondPattern />
-              <span className="block font-display text-2xl font-bold text-teal">
-                {mastersScholars.length}
-              </span>
-              <span className="mt-1 block text-sm text-ink/70">
-                Master's scholars →
-              </span>
-            </button>
-          </div>
         </header>
 
+        {/* PhD Research Scholars */}
         <Section
-          sectionRef={phdRef}
           number="01"
           title="PhD Research Scholars"
           description="Doctoral research spanning language technologies, healthcare, artificial intelligence, and computational linguistics."
@@ -318,36 +271,9 @@ export default function Scholars() {
           </div>
         </Section>
 
+        {/* MTech / MSc Research Scholars */}
         <Section
-          sectionRef={booksRef}
           number="02"
-          title="Edited Books"
-          description="Scholarly volumes on intelligent technologies, low-resource languages, and healthcare natural language processing."
-        >
-          <div className="grid gap-5 md:grid-cols-2">
-            {editedBooks.map((book) => (
-              <article
-                key={book.title}
-                className="group relative isolate flex flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
-              >
-                <DiamondPattern />
-                <span className="text-xs font-semibold uppercase tracking-wider text-teal">
-                  {book.publisher} · {book.year}
-                </span>
-                <h3 className="mt-3 font-display text-xl font-bold leading-snug text-ink">
-                  {book.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-ink/65">
-                  {book.authors}
-                </p>
-              </article>
-            ))}
-          </div>
-        </Section>
-
-        <Section
-          sectionRef={mastersRef}
-          number="03"
           title="MTech / MSc Research Scholars"
           description="Postgraduate and dual-degree research projects in biotechnology, bioinformatics, machine learning, and computational biology."
         >

@@ -18,7 +18,7 @@ import PHOTO from "../data/satya sir.png";
 const CV_URL = "/cv.pdf";
 
 // Contact details shown beside the photo -- replace with the real ones
-const EMAIL = "srdash@kiit.ac.in";
+const EMAIL = "sdashfca@kiit.ac.in";
 const PHONE = "+91 9861093702";
 
 // ---------------------------------------------------------------
@@ -217,13 +217,11 @@ export default function Home() {
 
           <ul className="mx-auto w-fit max-w-full space-y-3 text-sm leading-6 text-slate-700 md:text-base">
             {[
-              "Data science, big data analysis, Internet of Things and data mining",
-              "Deep learning and neural networks",
-              "Machine learning and pattern recognition",
-              "Cognitive computing",
-              "Video, colour, medical and remotely sensed image analysis",
-              "Natural computing, soft computing and computational intelligence",
-              "Bioinformatics and computational biology",
+              "Applied Machine Learning and Deep Learning",
+              "Biomedical Image Processing and Analysis",
+              "Natural Language Processing (NLP) for Low-Resource Languages",
+              "Automatic Speech Recognition (ASR) for Low-Resource and Regional Languages",
+              "Biomedical and Clinical Data Analytics Using Machine Learning and Deep Learning",
             ].map((interest) => (
               <li
                 key={interest}

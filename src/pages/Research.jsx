@@ -16,7 +16,41 @@ import {
   bookChapters,
   conferencePapers,
 } from "../data/researchData";
-
+// Edited Books moved from Scholars.jsx
+const editedBooks = [
+  {
+    authors:
+      "Sushree Sangita Mohanty, Satya Ranjan Dash, and Shantipriya Parida (eds.)",
+    title:
+      "Applying AI-Based Tools and Technologies Towards Revitalization of Indigenous and Endangered Languages",
+    publisher: "Springer",
+    year: 2024,
+  },
+  {
+    authors:
+      "Satya Ranjan Dash, Manas Ranjan Lenka, Kuan-Ching Li, and Esaú Villatoro-Tello (eds.)",
+    title:
+      "Intelligent Technologies: Concepts, Applications, and Future Directions",
+    publisher: "Springer",
+    year: 2023,
+  },
+  {
+    authors:
+      "Satya Ranjan Dash, Shantipriya Parida, Esaú Villatoro-Tello, Biswaranjan Acharya, and Ondřej Bojar (eds.)",
+    title:
+      "Natural Language Processing in Healthcare: A Special Focus on Low Resource Languages",
+    publisher: "CRC Press",
+    year: 2022,
+  },
+  {
+    authors:
+      "Satya Ranjan Dash, Himansu Das, Kuan-Ching Li, and Esau Villatoro-Tello",
+    title:
+      "Intelligent Technologies: Concepts, Applications, and Future Directions, Volume 2",
+    publisher: "Springer",
+    year: 2021,
+  },
+];
 function SectionHeading({ eyebrow, title, description }) {
   return (
     <div className="mb-8">
@@ -37,15 +71,88 @@ function SectionHeading({ eyebrow, title, description }) {
   );
 }
 
+// Diamond pattern used in navigation and publication cards
+function DiamondPattern() {
+  return (
+    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <svg
+        className="absolute inset-0 h-full w-full text-slate-400/[0.055] transition-colors duration-500 group-hover:text-slate-400/[0.12]"
+        viewBox="0 0 300 150"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        <path d="M150 0 L75 75 L150 150 L225 75 Z" stroke="currentColor" />
+        <path d="M75 75 L225 75 M150 0 L150 150" stroke="currentColor" />
+        <path d="M0 0 L150 150 L300 0" stroke="currentColor" />
+        <path d="M0 150 L150 0 L300 150" stroke="currentColor" />
+        <path d="M0 75 L150 0 L300 75" stroke="currentColor" />
+        <path d="M0 75 L150 150 L300 75" stroke="currentColor" />
+      </svg>
+
+      <div className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+    </div>
+  );
+}
+
+// Five navigation cards
+function SectionNavigation() {
+  const sections = [
+    {
+      id: "research-projects",
+      count: projects.length,
+      label: "Research Projects",
+    },
+    {
+      id: "journals",
+      count: journalPublications.length,
+      label: "Journal Publications",
+    },
+    {
+      id: "edited-books",
+      count: editedBooks.length,
+      label: "Edited Books",
+    },
+    {
+      id: "book-chapters",
+      count: bookChapters.length,
+      label: "Book Chapters",
+    },
+    {
+      id: "conference-papers",
+      count: conferencePapers.length,
+      label: "Conference Papers",
+    },
+  ];
+
+  return (
+    <div className="mb-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      {sections.map((section) => (
+        <a
+          key={section.id}
+          href={`#${section.id}`}
+          className="group relative isolate overflow-hidden rounded-xl border border-ink/10 bg-white px-5 py-4 text-left transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
+        >
+          <DiamondPattern />
+
+          <span className="block font-display text-2xl font-bold text-teal">
+            {section.count}
+          </span>
+
+          <span className="mt-1 block text-sm font-medium text-ink/70 transition-colors duration-300 group-hover:text-teal">
+            {section.label} →
+          </span>
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function ProjectSection() {
   return (
     <section id="research-projects" className="mb-20 scroll-mt-24">
       <SectionHeading
-        icon={FlaskConical}
         eyebrow="Research initiatives"
         title="Research Projects"
-        count={projects.length}
-        unit="projects"
       />
 
       <div className="grid gap-5 md:grid-cols-2">
@@ -64,7 +171,6 @@ function ProjectSection() {
                 preserveAspectRatio="none"
                 fill="none"
               >
-                {/* Diamond facets */}
                 <path
                   d="M150 0 L75 75 L150 150 L225 75 Z"
                   stroke="currentColor"
@@ -73,21 +179,15 @@ function ProjectSection() {
                   d="M75 75 L225 75 M150 0 L150 150"
                   stroke="currentColor"
                 />
-
-                {/* Cross-cut diagonal lines */}
                 <path d="M0 0 L150 150 L300 0" stroke="currentColor" />
                 <path d="M0 150 L150 0 L300 150" stroke="currentColor" />
-
-                {/* Additional facet lines */}
                 <path d="M0 75 L150 0 L300 75" stroke="currentColor" />
                 <path d="M0 75 L150 150 L300 75" stroke="currentColor" />
               </svg>
 
-              {/* Subtle diagonal shine */}
               <div className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
             </div>
 
-            {/* Existing left accent */}
             <div className="absolute inset-y-0 left-0 w-1 bg-teal/70" />
 
             <div className="flex items-start gap-4">
@@ -126,14 +226,7 @@ function ProjectSection() {
   );
 }
 
-function PublicationSection({
-  id,
-  title,
-  eyebrow,
-  icon: Icon,
-  items,
-  initialCount = 4,
-}) {
+function PublicationSection({ id, title, eyebrow, items, initialCount = 4 }) {
   const [expanded, setExpanded] = useState(false);
   const visibleItems = expanded ? items : items.slice(0, initialCount);
 
@@ -185,12 +278,48 @@ function PublicationSection({
   );
 }
 
+// Edited Books section
+function EditedBooksSection() {
+  return (
+    <section id="edited-books" className="mb-16 scroll-mt-24">
+      <SectionHeading
+        eyebrow="Scholarly volumes"
+        title="Edited Books"
+        description="Edited scholarly volumes on intelligent technologies, low-resource languages, and healthcare natural language processing."
+      />
+
+      <div className="grid gap-5 md:grid-cols-2">
+        {editedBooks.map((book) => (
+          <article
+            key={book.title}
+            className="group relative isolate flex flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10"
+          >
+            <DiamondPattern />
+
+            <span className="text-xs font-semibold uppercase tracking-wider text-teal">
+              {book.publisher} · {book.year}
+            </span>
+
+            <h3 className="mt-3 font-display text-xl font-bold leading-snug text-ink">
+              {book.title}
+            </h3>
+
+            <p className="mt-4 text-sm leading-7 text-ink/65">{book.authors}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function Research() {
   const totalRecords =
     projects.length +
     journalPublications.length +
+    editedBooks.length +
     bookChapters.length +
     conferencePapers.length;
+
   return (
     <main className="min-h-screen bg-paper px-4 pt-8 pb-14 md:px-8 md:pt-12 md:pb-20">
       <div className="mx-auto max-w-6xl">
@@ -198,44 +327,52 @@ export default function Research() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-teal">
             Academic work
           </p>
+
           <h1 className="font-display text-3xl font-semibold text-ink md:text-5xl">
             Research &amp; Publications
           </h1>
+
           <p className="mt-4 text-sm leading-7 text-slate-600 md:text-base">
             Explore research projects, funded initiatives, journal articles,
-            book chapters, and conference contributions across interdisciplinary
-            research and innovation.
+            edited books, book chapters, and conference contributions across
+            interdisciplinary research and innovation.
           </p>
+
           <p className="mt-5 text-xs font-medium uppercase tracking-widest text-slate-500">
-            {totalRecords} research records across four categories
+            {totalRecords} research records across five categories
           </p>
         </header>
 
+        {/* Five section navigation cards */}
+        <SectionNavigation />
+
         <ProjectSection />
+
         <PublicationSection
           id="journals"
           title="Journal Publications"
           eyebrow="Peer-reviewed research"
-          icon={BookOpen}
           items={journalPublications}
         />
+
+        <EditedBooksSection />
+
         <PublicationSection
           id="book-chapters"
           title="Book Chapters"
           eyebrow="Scholarly contributions"
-          icon={BookOpen}
           items={bookChapters}
         />
+
         <PublicationSection
           id="conference-papers"
           title="Conference Papers & Proceedings"
           eyebrow="Conference contributions"
-          icon={FlaskConical}
           items={conferencePapers}
         />
 
+        {/* Google Scholar card */}
         <div className="group relative isolate overflow-hidden rounded-2xl border border-ink/10 bg-white p-6 text-center transition-all duration-500 hover:-translate-y-1 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/10 md:p-8">
-          {/* Criss-cross diamond-cut decorative lines */}
           <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
             <svg
               className="absolute inset-0 h-full w-full text-slate-400/[0.050] transition-colors duration-500 group-hover:text-slate-400/[0.08]"
@@ -254,11 +391,9 @@ export default function Research() {
               <path d="M0 75 L150 150 L300 75" stroke="currentColor" />
             </svg>
 
-            {/* Subtle diagonal shine */}
             <div className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
           </div>
 
-          {/* Existing left accent */}
           <div className="absolute inset-y-0 left-0 w-1 bg-teal/70" />
 
           <div className="relative z-10">

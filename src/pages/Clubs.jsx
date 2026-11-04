@@ -11,7 +11,7 @@ const societies = [
     accent: "from-teal-500/10 to-cyan-500/5",
   },
   {
-    title: "KNOWVATE",
+    title: "KNOWVATE Global Hub",
     subtitle: "Innovation & Knowledge Society",
     description:
       "An initiative that encourages creative thinking, innovation, knowledge exchange and exploration of emerging technologies.",
