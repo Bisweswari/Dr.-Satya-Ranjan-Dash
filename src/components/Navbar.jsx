@@ -6,7 +6,7 @@ const links = [
   { label: "Research & Publications", to: "/research" },
   { label: "Clubs & Societies", to: "/clubs" },
   { label: "Workshops & Summer Schools", to: "/workshops" },
-  { label: "Scholars & Edited Books", to: "/scholars" },
+  { label: "Research Scholars", to: "/scholars" },
   { label: "Engagements & Beyond", to: "/engagements-beyond" },
 ];
 
